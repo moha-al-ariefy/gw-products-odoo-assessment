@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="gw_sales_dashboard.SalesDashboard" owl="1">
+        <div class="p-4 bg-light" t-ref="root">
+            <h3 class="mb-3"><t t-esc="_t('Live Sales Dashboard')"/></h3>
+            <div t-if="state.isLoading" class="text-center">
+                <i class="fa fa-spinner fa-spin"/> <t t-esc="_t('Loading Analytics...')"/>
+            </div>
+            <div t-else="" class="d-flex flex-wrap gap-3" id="kpi-container">
+                <t t-foreach="state.kpiData" t-as="kpi" t-key="kpi.id">
+                    <div class="card p-3 shadow-sm" style="min-width: 200px;">
+                        <h5><t t-esc="kpi.title"/></h5>
+                        <h2 class="fw-bold"><t t-esc="kpi.value"/></h2>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>
